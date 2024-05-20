@@ -1,0 +1,38 @@
+Создание модуля исполнения сделок на блокчейнах EVM, ATOM, TON который будет интегрирован в уже существующую трейдинговую платформу.
+
+- Знания GO lang, k8s, GRPC.
+- Опыт работы с блокчейном, execution сделок через собственную RPC node на EVM- (BASE, BLAST, etc) совместимых блокчейнах, так же на блочейне ATOM, TON. Анализ данных с блокчейна в реальном времени.
+- Постоянная коммуникация с представителями заказчика для своевременного уточнения данных.
+
+ТЗ:
+1. Serviss poluchenij cen - 
+service DexPriceGatheringService {
+    rpc Price (PriceRequest) returns (PriceResponse) {}
+    rpc EffectivePrice (EffectivePriceRequest) returns (EffectivePriceResponse) {}
+    rpc Pairs (PairsRequest) returns (PairsResponse) {}
+    rpc PriceList (PriceListRequest) returns (PriceListResponse) {}
+    rpc Exchanges (ExchangesRequest) returns (ExchangesResponse) {}
+    rpc PriceListStream (stream PriceListStreamRequest) returns (stream PriceListStreamResponse) {}
+}
+
+2. Execution serviss:
+service DexExecutionService {
+    rpc ExecuteSwap (ExecuteSwapRequest) returns (ExecuteSwapResponse) {}
+    rpc NetworkStatus (NetworkStatusRequest) returns (NetworkStatusResponse) {}
+    rpc Balances (BalancesRequest) returns (BalancesResponse) {}
+    rpc TxDetails (TxDetailsRequest) returns (TxDetailsResponse) {}
+    rpc Transfer (TransferRequest) returns (TransferResponse) {}
+    rpc Unwrap (UnwrapRequest) returns (UnwrapResponse) {}
+}
+service DexExecutionCallbackService {
+    rpc SwapCallback (SwapCallbackRequest) returns (SwapCallbackResponse) {}
+    rpc TransferCallback(TransferCallbackRequest) returns (TransferCallbackResponse) {}
+    rpc UnwrapCallback(UnwrapCallbackRequest) returns (UnwrapCallbackResponse) {}
+}
+
+
+contact:
+mikhailova.anna@g.estchange.io
+tg: de_pensamientos
+
+
